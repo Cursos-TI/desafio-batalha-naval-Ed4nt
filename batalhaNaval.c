@@ -194,14 +194,7 @@ int main() {
     
     printf("\n");
 
-    // EXIBIR TABULEIRO
-    printf("\n  TABULEIRO 10X10 \n");
-    for (int i = 0; i < 10; i++) {
-       for (int j = 0; j < 10; j++) {
-        printf("%d ", tabuleiro[i][j]);
-       }
-       printf("\n");
-    }
+    
 
 
     // Nível Mestre - Habilidades Especiais com Matrizes
@@ -225,29 +218,70 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
+    int tamanhoHabilidade = 5;
+
     int habilidadeCone[5][5] = {
-        0, 0, 0, 0, 0,
-        0, 0, 1, 0, 0,
-        0, 1, 1, 1, 0,
-        1, 1, 1, 1, 1,
-        0, 0, 0, 0, 0,
+        {0, 0, 0, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 1, 1, 1, 0},
+        {1, 1, 1, 1, 1},
+        {0, 0, 0, 0, 0}
     };
 
     int habilidadeOctaedro[5][5] = {
-        0, 0, 0, 0, 0,
-        0, 0, 1, 0, 0,
-        0, 1, 1, 1, 0,
-        0, 0, 1, 0, 0,
-        0, 0, 0, 0, 0,
+        {0, 0, 0, 0, 0},
+        {0, 0, 1, 0, 0},
+        {0, 1, 1, 1, 0},
+        {0, 0, 1, 0, 0},
+        {0, 0, 0, 0, 0}
     };
 
     int habilidadeCruz[5][5] = {
-        0, 0, 1, 0, 0,
-        0, 0, 1, 0, 0,
-        1, 1, 1, 1, 1,
-        0, 0, 1, 0, 0,
-        0, 0, 1, 0, 0,
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0},
+        {1, 1, 1, 1, 1},
+        {0, 0, 1, 0, 0},
+        {0, 0, 1, 0, 0}
     };
 
+    int linhaOrigemHabilidade = 2;
+    int colunaOrigemHabilidade = 2;
+
+    // ATAQUE EM CONE
+
+    for(int linhaAtaqueCone = 2; linhaAtaqueCone < tamanhoTabuleiro; linhaAtaqueCone++) { // linha
+        for (int colunaAtaqueCone = 4; colunaAtaqueCone < tamanhoTabuleiro; colunaAtaqueCone++) { // coluna
+            if (habilidadeCone[linhaAtaqueCone][colunaAtaqueCone] == 1) {
+                tabuleiro[linhaAtaqueCone][colunaAtaqueCone] = 5;
+            }
+        }
+    }
+/*
+    // ATAQUE EM OCTAEDRO
+    for(int i = 0; i < tamanhoHabilidade; i++) { // linha
+        for (int j = 0; j < tamanhoHabilidade; j++) { // coluna
+            if (habilidadeOctaedro[i][j] == 1) {
+                tabuleiro[i + 5][j + 5] = 5;
+            }
+        }
+    }
+
+    // ATAQUE EM CRUZ
+    for(int i = 0; i < tamanhoHabilidade; i++) { // linha
+        for (int j = 0; j < tamanhoHabilidade; j++) { // coluna
+            if (habilidadeCruz[i][j] == 1) {
+                tabuleiro[i + 5][j] = 5;
+            }
+        }
+    }
+*/
+    // EXIBIR TABULEIRO
+    printf("\n  TABULEIRO 10X10 \n");
+    for (int i = 0; i < 10; i++) {
+       for (int j = 0; j < 10; j++) {
+        printf("%d ", tabuleiro[i][j]);
+       }
+       printf("\n");
+    }
     return 0;
 }
